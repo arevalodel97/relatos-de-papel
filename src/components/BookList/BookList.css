@@ -1,0 +1,28 @@
+.book-list {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center; /* center the list horizontally */
+  width: 100%;
+  padding: 24px 16px;
+}
+
+.book-list > * {
+  margin: 8px 0;
+}
+
+.book-list__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-list__pagination {
+  margin-top: 16px;
+}
+
+.book-list__empty {
+  margin-top: 12px;
+  padding: 12px 20px;
+  background: transparent;
+}

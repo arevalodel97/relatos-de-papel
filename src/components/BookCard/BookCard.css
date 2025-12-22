@@ -1,0 +1,50 @@
+.book-card {
+  width: 220px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  /* fixed height so all cards are the same size */
+  height: 420px;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.book-card__media {
+  height: 240px; /* fixed media area height */
+  background-size: cover;
+  background-position: center;
+  transition: transform 300ms ease;
+}
+.book-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* make content fill remaining space so footer stays at bottom */
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+.book-card__title {
+  font-weight: 600;
+}
+.book-card__author {
+  font-size: 0.85rem;
+}
+.book-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.book-card__price {
+  font-weight: 700;
+}
+
+/* Hover/Focus styles: scale image slightly and raise card shadow */
+.book-card:hover,
+.book-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.book-card:hover .book-card__media,
+.book-card:focus-within .book-card__media {
+  transform: scale(1.06);
+}

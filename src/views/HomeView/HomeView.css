@@ -1,0 +1,9 @@
+.home-view {
+  width: 100%;
+}
+
+.view-full {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+}

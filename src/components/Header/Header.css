@@ -1,0 +1,19 @@
+.header__toolbar {
+  display: flex;
+  align-items: center;
+}
+.header__brand {
+  color: var(--project-primary-contrast);
+  text-decoration: none;
+  font-weight: 600;
+}
+.header__spacer {
+  flex: 1 1 auto;
+}
+
+.header__search {
+  width: 360px;
+  margin-left: 16px;
+  display: flex;
+  align-items: center; /* center search vertically */
+}

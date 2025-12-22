@@ -1,0 +1,18 @@
+.add-modal__body {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.add-modal__img {
+  width: 96px;
+  height: 140px;
+  object-fit: cover;
+}
+.add-modal__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.add-modal__price {
+  font-weight: 700;
+}

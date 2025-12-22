@@ -1,0 +1,23 @@
+.cart {
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.cart__header {
+  margin-bottom: 8px;
+}
+.cart__list {
+  max-height: 320px;
+  overflow: auto;
+  margin-bottom: 8px;
+}
+.cart__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.cart__footer--center {
+  justify-content: center;
+}

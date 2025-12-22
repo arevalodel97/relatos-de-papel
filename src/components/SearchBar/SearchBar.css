@@ -1,0 +1,49 @@
+.search-bar {
+  width: 100%;
+}
+.search-bar__input {
+  width: 100%;
+}
+
+/* ensure the search container centers its contents vertically when used in header */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+/* Style MUI Outlined TextField to use transversal tokens */
+.search-bar .MuiFormLabel-root {
+  color: var(--project-primary-contrast);
+}
+.search-bar .MuiOutlinedInput-root {
+  color: var(--project-primary-contrast);
+}
+.search-bar .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: var(--project-border);
+}
+.search-bar .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--project-primary-600);
+}
+.search-bar .MuiInputBase-input {
+  color: var(--project-primary-contrast);
+}
+
+/* Ensure the label shrinks color when focused */
+.search-bar .MuiInputLabel-root.Mui-focused {
+  color: var(--project-primary-contrast);
+}
+
+/* Also apply the same label color on hover so it matches header brand color */
+.search-bar:hover .MuiInputLabel-root,
+.search-bar .MuiInputLabel-root:hover {
+  color: var(--project-primary-contrast);
+}
+
+/* Make the outline clearly visible on hover and focus using the transversal tokens */
+.search-bar .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: var(--project-primary-600);
+}
+.search-bar .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--project-primary-600);
+  border-width: 1px;
+}

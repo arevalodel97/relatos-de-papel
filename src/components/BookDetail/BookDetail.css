@@ -1,0 +1,29 @@
+.book-detail {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.book-detail__media {
+  width: 320px;
+  height: 480px;
+  background-size: cover;
+  background-position: center;
+}
+.book-detail__info {
+  flex: 1 1 auto;
+}
+.book-detail__title {
+  margin-bottom: 8px;
+}
+.book-detail__author {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.book-detail__desc {
+  margin-bottom: 16px;
+}
+.book-detail__buy {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
