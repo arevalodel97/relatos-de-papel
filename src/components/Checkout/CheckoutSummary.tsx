@@ -28,11 +28,10 @@ export const CheckoutSummary: React.FC = () => {
     setLoading(true)
     const payload = makePayload()
     try {
-      // Call the mock service and expect a successful 200 response for this flow
       console.log('Payload a enviar al backend:', payload)
       const res = await submitOrder(payload, false)
       console.log('Order response:', res)
-      // On success show alert with order id and the ids being paid
+      
       alert(`Pedido realizado con éxito. OrderId: ${res.data.orderId}\nIDs pagados: ${payload.items.map(i => i.id).join(', ')}`)
       clear()
       navigate('/home')

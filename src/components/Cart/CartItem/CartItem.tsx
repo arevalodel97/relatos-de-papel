@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import './CartItem.css'
-import type { CartItem as CI } from '../../types/book.types'
+import type { CartItem as CI } from '../../../types/book.types'
 
 interface Props {
   book: CI

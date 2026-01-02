@@ -7,8 +7,8 @@ import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import './AddToCartModal.css'
-import type { Book } from '../../types/book.types'
-import { useCart } from '../../hooks/useCart'
+import type { Book } from '../../../types/book.types'
+import { useCart } from '../../../hooks/useCart'
 
 interface Props {
   open: boolean
@@ -33,8 +33,7 @@ export const AddToCartModal: React.FC<Props> = ({ open, book, onClose }) => {
     onClose()
   }
 
-  const handleDialogClose = (event?: {}, reason?: 'backdropClick' | 'escapeKeyDown') => {
-    // Stop propagation so the original click doesn't reach underlying components (like Card onClick)
+  const handleDialogClose = (event?: {}) => {
     if (event && typeof (event as React.SyntheticEvent).stopPropagation === 'function') {
       ;(event as React.SyntheticEvent).stopPropagation()
     }
@@ -47,11 +46,9 @@ export const AddToCartModal: React.FC<Props> = ({ open, book, onClose }) => {
       onClose={handleDialogClose}
       aria-label="Añadir al carrito"
       PaperProps={{
-        // stop propagation so clicks inside the modal don't bubble to parent Card onClick
         onClick: (e: React.MouseEvent) => e.stopPropagation(),
       }}
       BackdropProps={{
-        // stop propagation of backdrop clicks so they don't reach underlying elements
         onClick: (e: React.MouseEvent) => e.stopPropagation(),
       }}
     >
@@ -76,7 +73,7 @@ export const AddToCartModal: React.FC<Props> = ({ open, book, onClose }) => {
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={(e) => handleDialogClose(e as unknown as {}, undefined)}>Cancelar</Button>
+        <Button onClick={(e) => handleDialogClose(e as unknown as {})}>Cancelar</Button>
         <Button variant="contained" onClick={handleAdd}>Añadir</Button>
       </DialogActions>
     </Dialog>

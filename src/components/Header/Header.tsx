@@ -30,7 +30,6 @@ export const Header: React.FC<Props> = ({ onSearchChange, searchValue }) => {
             value={searchValue ?? ''}
             onChange={(v) => {
               if (onSearchChange) onSearchChange(v)
-              // always navigate to home when user types a search
               navigate('/home')
             }}
           />

@@ -8,8 +8,8 @@ export const LandingView: React.FC = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // const t = setTimeout(() => navigate('/home'), 5000)
-    // return () => clearTimeout(t)
+    const t = setTimeout(() => navigate('/home'), 5000)
+    return () => clearTimeout(t)
   }, [navigate])
 
   return (

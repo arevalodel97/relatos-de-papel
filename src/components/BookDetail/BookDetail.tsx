@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper'
 import type { Book } from '../../types/book.types'
 import { useCart } from '../../hooks/useCart'
 import { useState } from 'react'
-import AddToCartModal from '../Cart/AddToCartModal'
+import AddToCartModal from '../Cart/AddToCartModal/AddToCartModal'
 
 export const BookDetail: React.FC<{ book: Book | null }> = ({ book }) => {
   useCart()

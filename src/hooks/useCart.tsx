@@ -44,8 +44,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setItems((prev) => {
       const existing = prev.find((it) => it.id === book.id)
       if (existing) {
-        // Replace the quantity with the provided value (modal should set/overwrite),
-        // instead of adding to the existing quantity which caused cumulative totals.
         return prev.map((it) => (it.id === book.id ? { ...it, quantity: q } : it))
       }
       return [...prev, { ...book, quantity: q }]

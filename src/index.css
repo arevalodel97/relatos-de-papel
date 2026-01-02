@@ -24,7 +24,6 @@ a:hover {
 
 body {
   margin: 0;
-  /* Use normal document flow so pages can take full width */
   display: block;
   min-width: 320px;
   min-height: 100vh;

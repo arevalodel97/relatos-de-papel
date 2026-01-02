@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import type { Book } from '../../types/book.types'
-import AddToCartModal from '../Cart/AddToCartModal'
+import AddToCartModal from '../Cart/AddToCartModal/AddToCartModal'
 import { useState } from 'react'
 
 interface Props {
@@ -34,7 +34,6 @@ export const BookCard: React.FC<Props> = ({ book, onClick }) => {
               size="small"
               onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation()
-                // open modal to choose quantity; if parent provided onAdd, still open modal
                 setOpen(true)
               }}
             >

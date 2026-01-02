@@ -18,16 +18,15 @@ export const BookList: React.FC<{ filter: string }> = ({ filter }) => {
 
   useEffect(() => {
     let mounted = true
-    // whenever filter or page changes, fetch paginated results
+    
     bookSearchService.searchBooks(filter, page, PAGE_SIZE).then((res) => {
       if (!mounted) return
       setBooks(res.books)
       setTotal(res.total)
-      // use totalPages returned by service
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const tp = res.totalPages
-      // set pagination based on service value
-      // ensure current page isn't past total pages
+      
+      
       if (page > tp) setPage(tp)
     })
 

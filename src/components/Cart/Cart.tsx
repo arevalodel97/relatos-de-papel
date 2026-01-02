@@ -7,7 +7,7 @@ import { useSearch } from '../../hooks/searchContext'
 import './Cart.css'
 import '../Checkout/CheckoutSummary.css'
 import { useCart } from '../../hooks/useCart'
-import CartItem from './CartItem'
+import CartItem from './CartItem/CartItem'
 
 export const Cart: React.FC = () => {
   const { items, removeItem, updateQuantity, clear, total } = useCart()
@@ -15,7 +15,6 @@ export const Cart: React.FC = () => {
   const { setSearch } = useSearch()
 
   if (items.length === 0) {
-    // Render the empty-state inside a Paper so it visually matches the filled cart
     return (
       <Paper className="cart" elevation={2}>
         <div className="cart__header">
@@ -50,17 +49,16 @@ export const Cart: React.FC = () => {
           <Typography variant="subtitle1">Total: ${total.toFixed(2)}</Typography>
           <div>
             <Button size="small" onClick={() => clear()}>Vaciar</Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => {
-                // clear search silently the first time navigating to checkout
-                setSearch('')
-                navigate('/checkout')
-              }}
-            >
-              Ir a pagar
-            </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  setSearch('')
+                  navigate('/checkout')
+                }}
+              >
+                Ir a pagar
+              </Button>
           </div>
         </div>
       )}

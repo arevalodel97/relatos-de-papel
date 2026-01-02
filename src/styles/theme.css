@@ -1,47 +1,36 @@
 :root{
-  /* Core brand colors (pastel teal + soft coral accent) */
-  /* Updated palette: warmer, book-like tones */
-  /* Slightly lighter, book-friendly palette */
-  --project-primary: #6b4f3a; /* lighter leather brown */
+  --project-primary: #6b4f3a;
   --project-primary-contrast: #ffffff;
   --project-primary-600: #5c422f;
-  --project-accent: #C78F64; /* warm terracotta / gold */
+  --project-accent: #C78F64;
   --project-accent-600: #b36f45;
 
-  /* Backgrounds / surfaces */
-  --project-bg: #F7F3EA; /* cream page background (near-white cream) */
-  --project-surface: #FBF8F3; /* very light surface slightly off-white */
+  --project-bg: #F7F3EA;
   --project-surface: #FFFFFF;
   --project-border: #E7E2DA;
 
-  /* Typography */
-  --text-primary: #102027; /* dark charcoal */
+  --text-primary: #102027;
   --text-secondary: #4b5563;
   --text-muted: #6b7280;
 
-  /* Semantic */
   --success: #4caf50;
   --error: #f44336;
   --warning: #ffb300;
   --info: #29b6f6;
 
-  /* Elevation / shadows */
   --shadow-1: 0 1px 4px rgba(16,32,39,0.06);
   --shadow-2: 0 6px 18px rgba(16,32,39,0.12);
   --shadow-3: 0 12px 36px rgba(16,32,39,0.18);
 
-  /* Radius / spacing */
   --radius-small: 6px;
   --radius-medium: 10px;
   --radius-large: 16px;
   --spacing-unit: 8px;
 
-  /* Fonts */
   --font-sans: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
   --base-font-size: 16px;
 }
 
-/* Apply sensible defaults to body */
 html,body{
   height:100%;
 }
@@ -54,7 +43,6 @@ body{
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* Utility tokens for components to consume */
 .surface {
   background: var(--project-surface);
   border: 1px solid var(--project-border);

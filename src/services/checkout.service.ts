@@ -1,5 +1,3 @@
-// Note: we reference CartItem shape in payload; not importing to avoid unused symbol lint.
-
 type OrderPayload = {
   items: Array<{
     id: string
@@ -19,7 +17,6 @@ type ServiceResponse = {
   message?: string
 }
 
-// Simulate a checkout API. If simulateError is true it rejects with a 500 after delay.
 export function submitOrder(payload: OrderPayload, simulateError = true, delay = 1200): Promise<ServiceResponse> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -28,7 +25,6 @@ export function submitOrder(payload: OrderPayload, simulateError = true, delay =
         return
       }
 
-      // Simulate a successful response with an order id
       resolve({ status: 200, data: { orderId: `ORD-${Date.now()}`, received: payload } })
     }, delay)
   })

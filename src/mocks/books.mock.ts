@@ -1,6 +1,5 @@
 import type { Book } from '../types/book.types'
 
-// Generate 40 mock books programmatically for variety
 const titles = [
   'Cien hojas en blanco',
   'Sombras de la ciudad',

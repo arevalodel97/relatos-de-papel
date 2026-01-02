@@ -3,7 +3,6 @@ import BookList from '../../components/BookList/BookList'
 import './HomeView.css'
 
 interface Props {
-  // search is provided by App via AppRouter -> Layout -> Header
   search?: string
 }
 

@@ -14,7 +14,7 @@ export const AppRouter: React.FC<Props> = ({ search }) => {
   return (
     <Routes>
       <Route path="/" element={<LandingView />} />
-  <Route path="/home" element={<HomeView search={search} />} />
+      <Route path="/home" element={<HomeView search={search} />} />
       <Route path="/book/:id" element={<BookDetailView />} />
       <Route path="/cart" element={<CartView />} />
       <Route path="/checkout" element={<CheckoutView />} />
