@@ -5,7 +5,7 @@ test.describe('Escenario 2: Validación de Flujo - Intento de Pago con Carrito V
 
   test('2.1 - Cliente accede a checkout sin artículos muestra mensaje de carrito vacío', async ({ page }) => {
     // [Given] El carrito está vacío - navegar primero, luego limpiar
-    await page.goto('http://localhost:5174/checkout')
+    await page.goto('http://localhost:5173/checkout')
     await page.waitForLoadState('networkidle')
     await page.evaluate(() => localStorage.clear())
     // Recargar para asegurar que está limpio
@@ -26,7 +26,7 @@ test.describe('Escenario 2: Validación de Flujo - Intento de Pago con Carrito V
 
   test('2.2 - El botón "Pagar" no está visible cuando el carrito está vacío', async ({ page }) => {
     // [Given] El carrito está vacío y cliente está en checkout
-    await page.goto('http://localhost:5174/checkout')
+    await page.goto('http://localhost:5173/checkout')
     await page.waitForLoadState('networkidle')
     await page.evaluate(() => localStorage.clear())
     await page.reload()
@@ -40,7 +40,7 @@ test.describe('Escenario 2: Validación de Flujo - Intento de Pago con Carrito V
 
   test('2.3 - Se muestra botón "Explorar libros" con carrito vacío', async ({ page }) => {
     // [Given] El carrito está vacío
-    await page.goto('http://localhost:5174/checkout')
+    await page.goto('http://localhost:5173/checkout')
     await page.waitForLoadState('networkidle')
     await page.evaluate(() => localStorage.clear())
     await page.reload()
@@ -56,7 +56,7 @@ test.describe('Escenario 2: Validación de Flujo - Intento de Pago con Carrito V
 
   test('2.4 - Clic en "Explorar libros" navega a /home', async ({ page }) => {
     // [Given] Cliente en checkout con carrito vacío
-    await page.goto('http://localhost:5174/checkout')
+    await page.goto('http://localhost:5173/checkout')
     await page.waitForLoadState('networkidle')
     await page.evaluate(() => localStorage.clear())
     await page.reload()
@@ -79,7 +79,7 @@ test.describe('Escenario 2: Validación de Flujo - Intento de Pago con Carrito V
 
   test('2.5 - El mensaje de carrito vacío está en español correcto', async ({ page }) => {
     // [Given] Cliente en checkout vacío
-    await page.goto('http://localhost:5174/checkout')
+    await page.goto('http://localhost:5173/checkout')
     await page.waitForLoadState('networkidle')
     await page.evaluate(() => localStorage.clear())
     await page.reload()

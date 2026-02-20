@@ -5,7 +5,7 @@ test.describe('Escenario 1: Flow Completo - Búsqueda → Detalle → Carrito �
     page,
   }) => {
     // [Given] El cliente está en Home, catálogo contiene 40 libros, carrito vacío
-    await page.goto('http://localhost:5174/home')
+    await page.goto('http://localhost:5173/home')
     await page.waitForLoadState('networkidle')
     await page.evaluate(() => localStorage.clear())
     
@@ -68,7 +68,7 @@ test.describe('Escenario 1: Flow Completo - Búsqueda → Detalle → Carrito �
     await expect(badge).toBeVisible()
 
     // [Then] Navegar a /cart y verificar
-    await page.goto('http://localhost:5174/cart')
+    await page.goto('http://localhost:5173/cart')
     await page.waitForLoadState('networkidle')
 
     const cartItems = page.locator('.cart-item')
@@ -83,7 +83,7 @@ test.describe('Escenario 1: Flow Completo - Búsqueda → Detalle → Carrito �
 
   test('1.2 - El carrito persiste después de recargar la página', async ({ page }) => {
     // [Given] Navegar a home
-    await page.goto('http://localhost:5174/home')
+    await page.goto('http://localhost:5173/home')
     await page.waitForLoadState('networkidle')
     await page.evaluate(() => localStorage.clear())
 
@@ -101,7 +101,7 @@ test.describe('Escenario 1: Flow Completo - Búsqueda → Detalle → Carrito �
     await page.waitForTimeout(300)
 
     // Navegar al carrito
-    await page.goto('http://localhost:5174/cart')
+    await page.goto('http://localhost:5173/cart')
     const cartCountBefore = await page.locator('.cart-item').count()
     expect(cartCountBefore).toBe(1)
 
@@ -116,7 +116,7 @@ test.describe('Escenario 1: Flow Completo - Búsqueda → Detalle → Carrito �
 
   test('1.3 - Búsqueda sin resultados muestra lista vacía', async ({ page }) => {
     // [Given] Navegar a home
-    await page.goto('http://localhost:5174/home')
+    await page.goto('http://localhost:5173/home')
     await page.waitForLoadState('networkidle')
     await page.evaluate(() => localStorage.clear())
 

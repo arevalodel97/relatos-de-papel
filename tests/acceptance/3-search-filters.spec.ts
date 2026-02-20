@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test'
 test.describe('Escenario 3: Filtrado y Búsqueda - Resultados por Criterio', () => {
   test.beforeEach(async ({ page }) => {
     // Navegar a home
-    await page.goto('http://localhost:5174/home')
+    await page.goto('http://localhost:5173/home')
     await page.waitForLoadState('networkidle')
     // Limpiar localStorage DESPUÉS de que la página esté lista
     await page.evaluate(() => localStorage.clear())
