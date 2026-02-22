@@ -18,7 +18,15 @@
 }
 
 .book-list__pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   margin-top: 16px;
+}
+
+.book-list__count {
+  font-size: 0.78rem;
 }
 
 .book-list__empty {

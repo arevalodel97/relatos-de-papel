@@ -56,7 +56,7 @@ export const AddToCartModal: React.FC<Props> = ({ open, book, onClose }) => {
       <DialogContent>
         {book && (
           <div className="add-modal__body">
-            <img src={book.image} alt={book.title} className="add-modal__img" />
+            <img src={book.photo} alt={book.title} className="add-modal__img" />
             <div className="add-modal__info">
               <Typography variant="h6">{book.title}</Typography>
               <Typography variant="body2" color="text.secondary">{book.author}</Typography>

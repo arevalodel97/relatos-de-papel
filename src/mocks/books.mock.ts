@@ -50,7 +50,7 @@ function makeBook(i: number): Book {
     author: `Autor ${((i % 12) + 1)}`,
     price: +(10 + (i % 20) * 1.5).toFixed(2),
     description: `Descripción del libro ${i + 1}: un relato único sobre lugares y personas.`,
-    image: `https://picsum.photos/seed/book${i + 1}/400/600`,
+    photo: `https://picsum.photos/seed/book${i + 1}/400/600`,
   }
 }
 

@@ -1,33 +1,45 @@
-type OrderPayload = {
-  items: Array<{
-    id: string
-    title: string
-    price: number
-    quantity: number
-  }>
-  total: number
-  currency: string
-  createdAt: string
-  customer?: { id?: string | null; name?: string | null }
+const GATEWAY_URL = import.meta.env.VITE_GATEWAY_URL as string
+
+export interface CustomerInfo {
+  name: string
+  email: string
+  address: string
 }
 
-type ServiceResponse = {
-  status: number
+export interface PaymentItem {
+  bookId: number
+  quantity: number
+}
+
+export interface PaymentPayload {
+  customer: CustomerInfo
+  items: PaymentItem[]
+}
+
+export interface PaymentResponse {
   data?: any
   message?: string
 }
 
-export function submitOrder(payload: OrderPayload, simulateError = true, delay = 1200): Promise<ServiceResponse> {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (simulateError) {
-        reject({ status: 500, message: 'Error simulado del servidor' })
-        return
-      }
+export async function submitPayment(payload: PaymentPayload): Promise<PaymentResponse> {
+  const body = {
+    method: 'POST',
+    queryParams: {
+      path: '/payments/purchases',
+    },
+    body: payload,
+  }
 
-      resolve({ status: 200, data: { orderId: `ORD-${Date.now()}`, received: payload } })
-    }, delay)
+  const response = await fetch(`${GATEWAY_URL}/api/gateway`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
   })
-}
 
-export type { OrderPayload }
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}))
+    throw new Error(err?.message || `Error ${response.status} al procesar el pago`)
+  }
+
+  return response.json()
+}

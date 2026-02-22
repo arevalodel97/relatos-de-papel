@@ -1,42 +1,39 @@
 import React, { useState } from 'react'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
-import CircularProgress from '@mui/material/CircularProgress'
-import Alert from '@mui/material/Alert'
 import './CheckoutSummary.css'
 import { useCart } from '../../hooks/useCart'
 import { useNavigate } from 'react-router-dom'
-import { submitOrder, type OrderPayload } from '../../services/checkout.service'
+import { submitPayment, type CustomerInfo } from '../../services/checkout.service'
+import CheckoutModal from './CheckoutModal/CheckoutModal'
 
 export const CheckoutSummary: React.FC = () => {
   const { items, total, clear } = useCart()
   const navigate = useNavigate()
 
+  const [modalOpen, setModalOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const makePayload = (): OrderPayload => ({
-    items: items.map((it) => ({ id: it.id, title: it.title, price: it.price, quantity: it.quantity })),
-    total,
-    currency: 'USD',
-    createdAt: new Date().toISOString(),
-    customer: { id: null, name: null },
-  })
+  const handleOpenModal = () => {
+    setError(null)
+    setModalOpen(true)
+  }
 
-  const handlePay = async () => {
+  const handleConfirm = async (customer: CustomerInfo) => {
     setError(null)
     setLoading(true)
-    const payload = makePayload()
     try {
-      console.log('Payload a enviar al backend:', payload)
-      const res = await submitOrder(payload, false)
-      console.log('Order response:', res)
-      
-      alert(`Pedido realizado con éxito. OrderId: ${res.data.orderId}\nIDs pagados: ${payload.items.map(i => i.id).join(', ')}`)
+      const payload = {
+        customer,
+        items: items.map((it) => ({ bookId: Number(it.id), quantity: it.quantity })),
+      }
+      const res = await submitPayment(payload)
+      setModalOpen(false)
       clear()
+      alert(`Pedido realizado con éxito.${res?.data?.orderId ? `\nOrderId: ${res.data.orderId}` : ''}`)
       navigate('/home')
     } catch (err: any) {
-      console.error('Order failed', err)
       setError(err?.message || 'Error al procesar el pago')
     } finally {
       setLoading(false)
@@ -68,14 +65,21 @@ export const CheckoutSummary: React.FC = () => {
             ))}
           </div>
           <div className="checkout__total">Total: ${total.toFixed(2)}</div>
-          {error && <Alert severity="error">{error} — podés reintentar.</Alert>}
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <Button variant="contained" color="primary" onClick={handlePay} disabled={loading}>
-              {loading ? <CircularProgress size={20} color="inherit" /> : 'Pagar'}
+            <Button variant="contained" color="primary" onClick={handleOpenModal}>
+              Pagar
             </Button>
           </div>
         </>
       )}
+
+      <CheckoutModal
+        open={modalOpen}
+        loading={loading}
+        error={error}
+        onClose={() => setModalOpen(false)}
+        onConfirm={handleConfirm}
+      />
     </div>
   )
 }

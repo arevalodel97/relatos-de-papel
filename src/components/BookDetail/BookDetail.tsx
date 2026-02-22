@@ -17,7 +17,7 @@ export const BookDetail: React.FC<{ book: Book | null }> = ({ book }) => {
 
   return (
     <Paper className="cart book-detail" elevation={2}>
-      <CardMedia className="book-detail__media" image={book.image} title={book.title} />
+      <CardMedia className="book-detail__media" image={book.photo} title={book.title} />
       <div className="book-detail__info">
         <Typography variant="h4" className="book-detail__title">{book.title}</Typography>
         <Typography variant="subtitle1" className="book-detail__author">{book.author}</Typography>

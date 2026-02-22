@@ -18,7 +18,7 @@ export const BookCard: React.FC<Props> = ({ book, onClick }) => {
   const [open, setOpen] = useState(false)
   return (
     <Card className="book-card" onClick={() => onClick && onClick(book.id)}>
-      <CardMedia className="book-card__media" image={book.image} title={book.title} />
+      <CardMedia className="book-card__media" image={book.photo} title={book.title} />
       <CardContent className="book-card__content">
         <Typography variant="h6" className="book-card__title">
           {book.title}

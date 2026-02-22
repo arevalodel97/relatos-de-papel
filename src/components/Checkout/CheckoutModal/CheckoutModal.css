@@ -1,0 +1,15 @@
+.checkout-modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 12px !important;
+}
+
+.checkout-modal__error {
+  margin-bottom: 4px;
+}
+
+.checkout-modal__actions {
+  padding: 12px 24px 16px;
+  gap: 8px;
+}

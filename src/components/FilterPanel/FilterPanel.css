@@ -1,0 +1,102 @@
+.filter-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+.filter-panel__group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.filter-panel__group--price {
+  min-width: 140px;
+  max-width: 180px;
+  flex: 1;
+}
+
+.filter-panel__group--stock {
+  white-space: nowrap;
+}
+
+.filter-panel__group--clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-panel__label {
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  color: #888 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.filter-panel__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+}
+
+.filter-panel__categories .MuiFormControlLabel-root {
+  margin: 0;
+}
+
+.filter-panel__categories .MuiFormControlLabel-label {
+  font-size: 0.82rem;
+}
+
+.filter-panel__ratings .MuiFormControlLabel-label {
+  font-size: 0.82rem;
+}
+
+.filter-panel__ratings {
+  flex-wrap: wrap;
+  gap: 0 4px;
+}
+
+.filter-panel__ratings .MuiFormControlLabel-root {
+  margin: 0;
+}
+
+.filter-panel__stars .MuiFormControlLabel-label {
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+  color: #f5a623;
+}
+
+.filter-panel__divider {
+  align-self: stretch;
+  margin: 0 4px !important;
+}
+
+.filter-panel__slider {
+  color: #1976d2;
+  padding: 6px 0 !important;
+}
+
+/* Active / selected highlight */
+.filter-panel__active .MuiFormControlLabel-label {
+  font-weight: 700;
+  color: #1976d2;
+}
+
+.filter-panel__active.filter-panel__stars .MuiFormControlLabel-label {
+  color: #f5a623;
+}
+
+.filter-panel__clear-btn {
+  white-space: nowrap;
+}

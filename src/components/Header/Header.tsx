@@ -27,8 +27,7 @@ export const Header: React.FC<Props> = ({ onSearchChange, searchValue }) => {
         </Typography>
         <div className="header__search">
           <SearchBar
-            value={searchValue ?? ''}
-            onChange={(v) => {
+            onSearch={(v) => {
               if (onSearchChange) onSearchChange(v)
               navigate('/home')
             }}
